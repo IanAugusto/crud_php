@@ -5,7 +5,7 @@
 
 ## Passos para rodar o crud php a sua máquina
 ## Será ncessário:
--> instalar php
+-> instalar php <br/>
 -> instalar xampp
 ## Agora faça:
 -> 
