@@ -1,5 +1,5 @@
 <?php 
-require_once "config.php";
+require_once "/crud_php/config/config.php";
 
 class Conection {
     public static function connect(){

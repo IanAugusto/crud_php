@@ -1,5 +1,5 @@
 <?php
-require_once 'pessoaModel.php';
+require_once '/crud_php/models/pessoaModel.php';
 
 $lista = Pessoa::listar();
 

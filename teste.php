@@ -1,6 +1,6 @@
 <?php
 
-require_once 'connection.php';
+require_once '/crud_php/config/connection.php';
 
 try {
     $connection = Conection::connect();
