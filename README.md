@@ -1,4 +1,4 @@
-﻿crud_php
+## CRUD PHP
 ## Introdução
  - Este projeto tem como finalidade de aprender a linguagem PHP e aperfeiçoa-lá para fins de programação web.
  - Sua funcionalidade é cadastrar, editar, deletar e consultar nomes cadastrados.
