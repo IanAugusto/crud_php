@@ -1,9 +1,3 @@
-<?php
-//require_once 'pessoaGet.php';
-
-//$lista = Pessoa::listar();
-
-?>
 
 
 <!DOCTYPE html>
@@ -20,19 +14,28 @@
 </head>
 
 <body>
-    <section class="m-3">
-        <a href="/crud_php/index.php">Voltar</a>
+
+    <section>
+        <nav>
+            <a href="/crud_php/index.php">Home</a>
+            <a href="/crud_php/views/login.php">Login</a>
+        </nav>
     </section>
 
     <section class="d-flex justify-content-center">
         <section class="m-3 w-50 d-flex justify-content-center">
-            <form action="/crud_php/controllers/pessoaControllerAdd.php" method="post">
+            <form action="/crud_php/controllers/usuarioAddController.php" method="post">
                 <div class="mb-3">
-                    <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" name="senha">
+                </div>
+
                 <div>
-                    <button type="submit" class="btn btn-primary">Adicionar</button>
+                    <button type="submit" class="btn btn-primary">Cadastra-se</button>
                 </div>
             </form>
         </section>

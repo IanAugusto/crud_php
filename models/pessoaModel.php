@@ -1,10 +1,11 @@
 <?php 
 
-require_once '/crud_php/config/connection.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/crud_php/config/connection.php';
 
 class Pessoa {
     private $id_pessoa;
     private $nome;
+    
 
     public function getNome(){
         return $this->nome;
@@ -30,15 +31,20 @@ class Pessoa {
         }
     }
     
-    public function load() {
-        $connection = Conection::connect();
-        $sql = "SELECT * FROM pessoa WHERE id_pessoa = :id";
-        $stmt = $connection->prepare($sql);
-        $stmt->bindValue(':id', $this->getId());
-        $stmt->execute();
-        $result = $stmt->fetch();
+    public function load(){
+        try {
+            $connection = Conection::connect();
+            $sql = "SELECT * FROM pessoa WHERE id_pessoa = :id";
+            $stmt = $connection->prepare($sql);
+            $stmt->bindValue(':id', $this->getId());
+            $stmt->execute();   
+            $result = $stmt->fetch();
 
-        $this->setNome($result['nome']);
+            $this->setNome($result['nome']);
+            
+        } catch (PDOException $th) {
+            echo $th->getMessage();
+        }
     }
 
     public function criar(){
@@ -46,7 +52,7 @@ class Pessoa {
             $connection = Conection::connect();
             $sql = "INSERT INTO pessoa (nome) VALUES (:nome)";
             $stmt = $connection->prepare($sql);
-            $stmt->bindValue(':nome', $this->getNome());
+            $stmt->bindValue(':nome', $this->getNome());            
             $stmt->execute();
             
         } catch (PDOException $th) {
@@ -55,7 +61,6 @@ class Pessoa {
     }
 
     public static function listar(){
-
         try {
             $connection = Conection::connect();
             $sql = "SELECT * FROM pessoa";
@@ -77,7 +82,6 @@ class Pessoa {
             $stmt = $connection->prepare($sql);
             $stmt->bindValue(':id', $this->getId());
             $stmt->execute();
-            
 
         } catch (PDOException $th) {
             echo $th->getMessage();
@@ -89,7 +93,7 @@ class Pessoa {
             $connection = Conection::connect();
             $sql = "UPDATE pessoa SET nome = :nome WHERE id_pessoa = :id";
             $stmt = $connection->prepare($sql);
-            $stmt->bindValue(':nome', $this->getNome());
+            $stmt->bindValue(':nome', $this->getNome());           
             $stmt->bindValue(':id', $this->getId());
             $stmt->execute();
             

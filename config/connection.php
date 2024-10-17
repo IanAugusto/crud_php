@@ -1,5 +1,5 @@
 <?php 
-require_once "/crud_php/config/config.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/crud_php/config/config.php";
 
 class Conection {
     public static function connect(){
